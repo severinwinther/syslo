@@ -1,0 +1,302 @@
+/* Worklio Support Page — overrides for Eventually template */
+
+/* Reset Eventually's full-screen dark layout for support page */
+body.support-page {
+  background: #ffffff;
+  color: #1a1a1a;
+  display: block;
+  height: auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Hide the Eventually background layer on support page */
+body.support-page #bg {
+  display: none;
+}
+
+/* Fade-in on load (reuse Eventually's is-preload mechanism) */
+body.support-page.is-preload #worklio-wrap {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+#worklio-wrap {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  opacity: 1;
+  transform: translateY(0);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── Header ── */
+#worklio-header {
+  padding: 3rem 0 2rem;
+  border-bottom: 1px solid #e8e8e5;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+#worklio-header::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: -120px;
+  width: 260px;
+  height: 220px;
+  background: #FFD93D;
+  border-radius: 60% 80% 70% 50% / 60% 50% 80% 70%;
+  z-index: -1;
+  opacity: 0.85;
+}
+
+.worklio-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.4rem;
+  color: #111111;
+}
+
+.worklio-logo span {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  color: #111111;
+}
+
+.worklio-logo strong {
+  font-weight: 700;
+  color: #111111;
+}
+
+.worklio-logo svg circle,
+.worklio-logo svg polyline {
+  stroke: #111111;
+}
+
+.worklio-tagline {
+  font-size: 15px;
+  color: #777;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* ── Sections ── */
+.worklio-section {
+  margin-bottom: 3.5rem;
+}
+
+.worklio-section h2 {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #111111;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid #FFD93D;
+  display: inline-block;
+}
+
+.worklio-section p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.75;
+  margin: 0;
+}
+
+.section-intro {
+  margin-bottom: 1.25rem !important;
+  color: #555 !important;
+}
+
+/* ── FAQ ── */
+.faq-item {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid #f0f0ec;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-q {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.faq-a {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.75;
+}
+
+/* ── Contact card ── */
+.contact-card {
+  display: inline-block;
+  background: #fffae8;
+  border: 1px solid #FFD93D;
+  border-radius: 12px;
+  padding: 1.1rem 1.5rem;
+  min-width: 260px;
+  margin-bottom: 0.75rem;
+}
+
+.contact-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #999;
+  margin-bottom: 0.25rem;
+}
+
+.contact-value {
+  font-size: 15px;
+}
+
+.contact-value a {
+  color: #111111;
+  text-decoration: none;
+  font-weight: 700;
+  border-bottom: 2px solid #FFD93D;
+  padding-bottom: 1px;
+  transition: border-color 0.15s;
+}
+
+.contact-value a:hover {
+  border-color: #111111;
+}
+
+.response-note {
+  font-size: 13px;
+  color: #aaa;
+  margin: 0 !important;
+}
+
+/* ── Footer ── */
+#worklio-footer {
+  border-top: 1px solid #e8e8e5;
+  padding: 1.5rem 0 3rem;
+  position: relative;
+}
+
+#worklio-footer::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -80px;
+  width: 200px;
+  height: 180px;
+  background: #FFD93D;
+  border-radius: 50% 70% 60% 80% / 70% 60% 80% 50%;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+#worklio-footer p {
+  font-size: 13px;
+  color: #bbb;
+  margin: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  #worklio-header::before {
+    right: -40px;
+    width: 180px;
+    height: 160px;
+  }
+
+  .worklio-section h2 {
+    font-size: 12px;
+  }
+
+  .contact-card {
+    width: 100%;
+  }
+}
+
+/* ── Dark mode ── */
+@media (prefers-color-scheme: dark) {
+  body.support-page {
+    background: #111111;
+    color: #e8e8e5;
+  }
+
+  #worklio-header {
+    border-bottom-color: #2a2a2a;
+  }
+
+  .worklio-logo span,
+  .worklio-logo strong {
+    color: #e8e8e5;
+  }
+
+  .worklio-logo svg circle,
+  .worklio-logo svg polyline {
+    stroke: #e8e8e5;
+  }
+
+  .worklio-tagline {
+    color: #666;
+  }
+
+  .worklio-section h2 {
+    color: #e8e8e5;
+  }
+
+  .faq-q {
+    color: #e8e8e5;
+  }
+
+  .faq-a,
+  .worklio-section p {
+    color: #888;
+  }
+
+  .faq-item {
+    border-bottom-color: #1e1e1e;
+  }
+
+  .contact-card {
+    background: #1a1800;
+    border-color: #8a6e00;
+  }
+
+  .contact-value a {
+    color: #e8e8e5;
+    border-bottom-color: #FFD93D;
+  }
+
+  .contact-value a:hover {
+    border-color: #e8e8e5;
+  }
+
+  #worklio-footer {
+    border-top-color: #2a2a2a;
+  }
+
+  #worklio-footer p {
+    color: #444;
+  }
+}
+
+/* ── Syslo wordmark (v1.5) ── */
+.worklio-logo .syslo-wordmark {
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  font-family: "Inter Display", "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+}
+.worklio-logo .syslo-wordmark em { font-style: normal; color: #FFD93D; }
